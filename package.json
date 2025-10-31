@@ -1,0 +1,14 @@
+{
+  "name": "n-a-t-h-a-n",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Cobb",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
