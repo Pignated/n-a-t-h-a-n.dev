@@ -15,7 +15,7 @@ class NavBar extends HTMLElement {
                 padding: 0;
                 margin:0;
                 overflow:hidden;
-                background-color: #f89494ff;
+                background-color: #4e8f4cff;
                 display:flex;
                 justify-content:center;
                 li {
