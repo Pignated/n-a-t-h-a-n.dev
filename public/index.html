@@ -3,13 +3,9 @@
     <head>
         <title>N-A-T-H-A-N.dev Homepage</title>
         <meta name="author" content="Nathan Cobb">
-        <style>
+        <link rel="stylesheet" href="main.css">
+                <script src="components.js" type="module"></script>
 
-            html, body{
-                margin: 0;
-                padding: 0;
-            }
-        </style>
     </head>
     <body style="background-color:peachpuff;">
 <!-- Make one bigggg container that stores the whole webpage. Then have one top section for a navbar/header. 
@@ -18,25 +14,28 @@
         <div">
             <div style="text-align: center;">
                 <h1>
-                    Nathan Cobb's Personal Website
+                    <a href="/index.html" class="title_link">Nathan Cobb's Personal Website</a>
                 </h1>
             </div>
+            <nav-bar></nav-bar>
             <div style="flex-direction: row; display:flex;">
                 <!-- Main Body segment -->
                  <div style="width: 12%; background-color: mediumseagreen; margin-left: 5%; position:fixed">
                     <p style="margin:10px">This little side box is here to remind you that I am always watching :)<br><b>ALLLWAAAYYSSSS WAATCHINNGGGG</b></p>
                  </div>
                  <div style="width: 60%;  margin-left: 20%">
-                    <h2 style="text-align: center;">Welcome to my webpage!</h2>
+                    <h2>Welcome to my webpage!</h2>
                     <p style="margin:10px">This is the <i>official</i> Nathan Cobb website, used to display my previous work, my personal and/or school projects,
                     and whatever else I decide to put on here. Here on the homepage I'll go over short descriptions of projects and work I've done in the past,
                     and lay out whatever other categories I've decided to add as the website goes on. This is very much a work in progress, but I am pretty happy
                     it. As you will see, I am by no means a web designer, but I cannot think of a better way to demonstrate the type of projects where I do demonstrate
                     competency.
                     </p>
-                    <h2 style="text-align: center;">Info about the site</h2>
+                    <h2>Info about the site</h2>
                     <p style="margin:10px">This site is (currently) a static html page being served by expressjs. Eventually I want to switch to a rust-based web server
-                        like axum or actix, but I wanted to get something started up quick. The 
+                        like axum or actix, but I wanted to get something started up quick. The web server is hosted on a Debian vm mangaged by Proxmox. All of this is run
+                        on a Cisco UCS c220 m3 which was donated to me by a coworker. I use nginx as a reverse proxy to access the web server and handle any other calls 
+                        needed. Along with eventually switching from expressjs to a rust web server, I do also want to switch from static html to react for the frontend.
                     </p>
                  </div>
 
