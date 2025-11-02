@@ -3,18 +3,22 @@
 html, body{
     margin: 0;
     padding: 0;
-    background-color: peachpuff;
+    background-color: rgb(85, 22, 3);
     font-family: "Roboto Mono", monospace;
+    color:white;
 }
 h2 {
     text-align: center;
 }
 .title_link{
-    color:black;
+    color:white;
     text-decoration: none;
 }
 p {
     margin:10px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-size:20px
 }
 
 img {
@@ -22,4 +26,7 @@ img {
     display:block;
     max-width: 100%;
     height: auto;
+}
+h2.homelab_header {
+    text-align: unset;
 }

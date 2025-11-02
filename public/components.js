@@ -15,14 +15,14 @@ class NavBar extends HTMLElement {
                 padding: 0;
                 margin:0;
                 overflow:hidden;
-                background-color: #eeeeee;
+                background-color: #f89494ff;
                 display:flex;
                 justify-content:center;
                 li {
                 display:inline-block;
                     a{
                         display:block;
-                        color:#777777;
+                        color:#114f70;
                         text-align: center;
                         padding: 14px 16px;
                         text-decoration: none;

@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="main.css">
     </head>
-    <body style="background-color:peachpuff;">
+    <body>
         <div">
 
 
@@ -21,38 +21,44 @@
             <div style="flex-direction: row; display:flex;">
                  <div style="width: 60%;  margin-left: 20%">
                     <h2>My Homelab</h2>
-                    <p>Over the past few months, I've been working on a homelab. It started when a coworker of mine gifted me an old 
-                        8 port gigabit switch, specifically the Netgear GS108. After playing with that and a couple raspberry pis I have, I also bought a wired router,
-                        an Omada ER605, turning my old router into a wireless access point. I used the built in vpn option on the router to remotely access my set up, using OpenVPN
-                        initially, but I had some issues with it working consistently. For one, I had to manually disable it when I was at my apartment or else I wouldn't have
-                        any internet access. I was able to write a script to help with this, but it still also had consistency issues when remotely accessing my network. I tried using one of
-                        raspberry pis as the VPN server instead of the router itself and this didn't make the situation much better. I decided to switch from OpenVPN to Wireguard
+                    <p>Over the past few months, I have been developing a homelab to practice my programming, networking, and IT skills. I have throughly enjoyed
+                        the process of building up systems which I can use to make my life a little easier and a little more fun. Self-hosting has been my main focus
+                        with the homelab, but I do plan to get into more experimental endevours as I continue. The following is a list of what I am using in my setup.
                     </p>
-                    <p>
-                        I had much less trouble using Wireguard, and found it's cli much easier to use. I had also set up a Pihole on one of my raspberry pis. Pihole is a local DNS server
-                        used to filter certain traffic, usually ads and trackers, stopping it from being resolved and passing the rest of the DNS requests to a public DNS server (personally
-                        I use OpenDNS with Google's DNS servers as backup). I have spent many an evening just watching my traffic, scanning for anything weird that I might want to block.
+                    <h2 class="homelab_header">Hardware</h2>
+                    <p>&emsp;&emsp;Currently my setup consists of an Omada ER605 router, a Netgear GS108 gigabit switch, two raspberry pis, and a Cisco UCS C220 M3 running Proxmox.
+                        All of my services (other than my media backup, for now), is run on vms inside the C220. My vpn and pihole run on one, my webserver on another, and a third 
+                        currently for a minecraft server. The server is currently having some drive issues, so I haven't yet set it up for media storage yet. Eventually I do want to run
+                        pretty much everything through it, including media backups for me and my family, possibly a music server so I don't need to rely on Spotify, and a dynamic minecraft 
+                        server webapp idea I have (news on that to come).
                     </p>
-                    <p>
-                        I thought I had reached a near peek of what I would have for a while as far as a my homelab goes. These things cost money and I'm on a student budget. I started looking
-                        into running a minecraft server off of an old laptop, using a different domain I own to use it so my friends or whoever joined it wouldn't have to type in my whole IP, but I had
-                        an issue: running a minecraft server on the regular minecraft port (25565) was often risky, as there are many bots that check for open minecraft ports to grief worlds.
-                        I did have my server set to whitelist so I could control who can join, but I still preferred to use a different port, without people having to type the port when saving the server.
-                        I couldn't figure out how to make it work until I found out about SRV dns records. Using this, I could specify what port a service should use (in this case minecraft) when trying to
-                        use a specific subdomain. This was perfect for me, and would help with an idea I eventually wanted to use, a web server which can dynamically start and stop multiple minecraft servers
-                        for me and my friends. I was estatic at this find, but it wouldn't be the last massive change to my setup.
+                    <h2 class="homelab_header">VPN</h2>
+                    <p>&emsp;&emsp;I originally used the built in OpenVPN configuration in my router, I have since switched to using Wireguard with the server running
+                        on my C220. The convenience of being able to access and modify my set up from anywhere is one of the biggest things I wanted when starting
+                        my homelab. As a student I am seldom actually at my apartment, so being able to do my work from anywhere is very useful.
                     </p>
-                    <p>
-                        That would come when another coworker of mine donated an old server we had used for imaging laptops. A Cisco UCS C220 M3, a server first sold in 2012 (unless google is lying to me). This was 
-                        a game changer for me. I'd never had that much raw power before, and I was and am very excited to see what I can do with it. It wasn't in perfect condition, have the drive bays aren't showing up,
-                        and it has an orange error light that I cannot for the life of me figure out the reason for, but that just means more space for me to learn.
-                        I think the issue with the drives not all showing up is the built in drive controller, and might be solved by getting an external SAS controller that fits in one of the onboard PCIe slots.
-                        I will update after I give it a shot. Regardless of it's condition, I immediately go to work setting up the device. I installed Proxmox as the OS so I could run many VMs and/or containers and
-                        use them how I see fit. At the moment I use Debian as the OS of the VMs as from my limited research it was supposed to be good for servers. THe first VM I set up, named "NetworkShizz", holds a pihole and
-                        a wireguard VPN, with my raspberry pis now working as back ups in case the server goes down. I created an image of the debian install (after adding a couple essentials and putting in my ssh key) to be used
-                        as a template so I don't have to go through the whole setup of Debian again every time I want to start up a new VM(it took me a little too long to figure out that was a good idea). The next VM I built was 
-                        made for hosting websites, specifically this one. So far I have also made one with a minecraft server, but I haven't used said server too much as of yet. I look forward to more ideas on what to use my server for
-                        and welcome any suggestions to my email (npcobb2003@gmail.com). 
+                    <h2 class="homelab_header">Media Backup</h2>
+                    <p>&emsp;&emsp;While I currently don't do much in terms of backup, I do have all of my schoolwork on my laptop automatically backup to an ssd connected to a raspberry pi 
+                        every 10 minutes. While this isn't the most safe way to do it (I'd much rather have it go to a raid NAS, but haven't gotten that set up yet), it ensures that 
+                        if my laptop does ever die, I won't lose anything important as long as my ssd hasn't died yet. In writing this I realize that I really should have something
+                        periodically checking to see if it had died yet, and will keep this line up as a shameful motivation to do that.
+                    </p>
+                    <h2 class="homelab_header">Pihole</h2>
+                    <p>&emsp;&emsp;Originally run on one of my raspberry pis, I now run a pihole on one of the VMs on my server. While predominately for blocking trackers and ads, I have also used
+                        it to assign my devices local addresses that the Pihole can resolve as them for ease of access (rasp1.domain.com is a lot easier to remember than an IP address). 
+                        On a side note, I do find it pretty entertaining to watch the traffic going through the pihole and blocking any traffic that appears to be tracking or advertisements.
+                        A pihole isn't perfect, some websites like youtube are getting smart, sending ad traffic and content through the same urls so that it can't be blocked, but it's 
+                        pretty convenient.
+                    </p>
+                    <h2 class="homelab_header">Webserver</h2>
+                    <p>&emsp;&emsp;To run this website, and possibly any others, I am currently using nginx for a reverse proxy, and then expressjs to serve the content of the website. This isn't my
+                        long term plan, but I started putting this website on applications so I needed something. Eventually, I plan to switch to a Rust-based webserver, as I generally prefer
+                        Rust over Javascript. The website is just vanilla html, css, and js, but eventually I also plan to switch to a framework (possibly React, but I haven't 100% decided yet).
+                    </p>
+                    <h2 class="homelab_header">Minecraft Servers</h2>
+                    <p>&emsp;&emsp;I have a vanilla minecraft server running using PurpurMC. I use an SRV record so that I can use a port other than minecraft's default while still making sure
+                        anyone joining the server doesn't have to type out an IP or port number. Eventually I want to run multiple servers off my C220, with many worlds stored on the drives and 
+                        trusted users (my friends) being able to start up whichever server they want whenever they want.
                     </p>
                     <h2>My current network map as of 11/1/2025</h2>
                     <img src="NetworkMap.png">
