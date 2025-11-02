@@ -12,11 +12,7 @@
         <div">
 
 
-            <div style="text-align: center;">
-                <h1>
-                    <a href="/index.html" class="title_link">Nathan Cobb's Personal Website</a>
-                </h1>
-            </div>
+
                                 <nav-bar></nav-bar>
             <div style="flex-direction: row; display:flex;">
                  <div style="width: 60%;  margin-left: 20%">
@@ -25,7 +21,9 @@
                         the process of building up systems which I can use to make my life a little easier and a little more fun. Self-hosting has been my main focus
                         with the homelab, but I do plan to get into more experimental endevours as I continue. The following is a list of what I am using in my setup.
                     </p>
+
                     <h2 class="homelab_header">Hardware</h2>
+                    <hr class="homelab_header">
                     <p>&emsp;&emsp;Currently my setup consists of an Omada ER605 router, a Netgear GS108 gigabit switch, two raspberry pis, and a Cisco UCS C220 M3 running Proxmox.
                         All of my services (other than my media backup, for now), is run on vms inside the C220. My vpn and pihole run on one, my webserver on another, and a third 
                         currently for a minecraft server. The server is currently having some drive issues, so I haven't yet set it up for media storage yet. Eventually I do want to run
@@ -33,17 +31,20 @@
                         server webapp idea I have (news on that to come).
                     </p>
                     <h2 class="homelab_header">VPN</h2>
+                    <hr class="homelab_header">
                     <p>&emsp;&emsp;I originally used the built in OpenVPN configuration in my router, I have since switched to using Wireguard with the server running
                         on my C220. The convenience of being able to access and modify my set up from anywhere is one of the biggest things I wanted when starting
                         my homelab. As a student I am seldom actually at my apartment, so being able to do my work from anywhere is very useful.
                     </p>
                     <h2 class="homelab_header">Media Backup</h2>
+                    <hr class="homelab_header">
                     <p>&emsp;&emsp;While I currently don't do much in terms of backup, I do have all of my schoolwork on my laptop automatically backup to an ssd connected to a raspberry pi 
                         every 10 minutes. While this isn't the most safe way to do it (I'd much rather have it go to a raid NAS, but haven't gotten that set up yet), it ensures that 
                         if my laptop does ever die, I won't lose anything important as long as my ssd hasn't died yet. In writing this I realize that I really should have something
                         periodically checking to see if it had died yet, and will keep this line up as a shameful motivation to do that.
                     </p>
                     <h2 class="homelab_header">Pihole</h2>
+                    <hr class="homelab_header">
                     <p>&emsp;&emsp;Originally run on one of my raspberry pis, I now run a pihole on one of the VMs on my server. While predominately for blocking trackers and ads, I have also used
                         it to assign my devices local addresses that the Pihole can resolve as them for ease of access (rasp1.domain.com is a lot easier to remember than an IP address). 
                         On a side note, I do find it pretty entertaining to watch the traffic going through the pihole and blocking any traffic that appears to be tracking or advertisements.
@@ -51,11 +52,13 @@
                         pretty convenient.
                     </p>
                     <h2 class="homelab_header">Webserver</h2>
+                    <hr class="homelab_header">
                     <p>&emsp;&emsp;To run this website, and possibly any others, I am currently using nginx for a reverse proxy, and then expressjs to serve the content of the website. This isn't my
                         long term plan, but I started putting this website on applications so I needed something. Eventually, I plan to switch to a Rust-based webserver, as I generally prefer
                         Rust over Javascript. The website is just vanilla html, css, and js, but eventually I also plan to switch to a framework (possibly React, but I haven't 100% decided yet).
                     </p>
                     <h2 class="homelab_header">Minecraft Servers</h2>
+                    <hr class="homelab_header" style="width:23%">
                     <p>&emsp;&emsp;I have a vanilla minecraft server running using PurpurMC. I use an SRV record so that I can use a port other than minecraft's default while still making sure
                         anyone joining the server doesn't have to type out an IP or port number. Eventually I want to run multiple servers off my C220, with many worlds stored on the drives and 
                         trusted users (my friends) being able to start up whichever server they want whenever they want.

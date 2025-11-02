@@ -36,7 +36,16 @@ class NavBar extends HTMLElement {
                 }
             }
         }
+        .title_link{
+            color:white;
+            text-decoration: none;
+        }
         </style>
+                    <div style="text-align: center;">
+                <h1>
+                    <a href="/index.html" class="title_link">Nathan Cobb's Personal Website</a>
+                </h1>
+            </div>
         <div class="nav-bar">
             <ul>
             <li><a href="index.html">Home Page</a></li>

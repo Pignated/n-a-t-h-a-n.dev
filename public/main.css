@@ -30,3 +30,8 @@ img {
 h2.homelab_header {
     text-align: unset;
 }
+hr.homelab_header {
+    width: 20%;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+}
