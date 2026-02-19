@@ -10,25 +10,27 @@ class NavBar extends HTMLElement {
             display:flex;
             justify-content:center;
             ul {
+                display:inline-grid;
+                grid-auto-flow:column;
+                grid-auto-columns:1fr;
                 list-style-type: none;
                 max-width:80%;
                 padding: 0;
                 margin:0;
-                overflow:hidden;
                 background-color: #4e8f4cff;
-                display:flex;
-                justify-content:center;
+
                 li {
-                display:inline-block;
+                    flex-grow:1;
+                    text-align:center;
+                    padding:10px 15px;
+                    align-items:center;
                     a{
-                        display:block;
                         color:#114f70;
                         text-align: center;
-                        padding: 14px 16px;
                         text-decoration: none;
                     }
                     a:hover{
-                        color:magenta
+                        color:#114f00
                     }
                 }
                 li + li {
