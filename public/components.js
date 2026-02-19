@@ -7,34 +7,28 @@ class NavBar extends HTMLElement {
         div{
             font-family: "Roboto Mono", Monospace;
             width:100%;
-            display:flex;
+            display:block;
             justify-content:center;
             ul {
-                display:inline-grid;
-                grid-auto-flow:column;
-                grid-auto-columns:1fr;
                 list-style-type: none;
-                max-width:80%;
-                padding: 0;
-                margin:0;
-                background-color: #4e8f4cff;
+                padding: 10px 0px;
 
+                overflow:hidden;
+                background-color: #4e8f4c;
                 li {
-                    flex-grow:1;
-                    text-align:center;
-                    padding:10px 15px;
-                    align-items:center;
+                    :hover {
+                        background-color: #373;
+                    }
+                    float:left;
                     a{
+                        margin: 14px 0px;
+                        padding: 14px 16px;
                         color:#114f70;
-                        text-align: center;
                         text-decoration: none;
                     }
                     a:hover{
                         color:#114f00
                     }
-                }
-                li + li {
-                border-left: 1px solid darkslategray;
                 }
             }
         }
