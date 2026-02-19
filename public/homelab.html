@@ -20,28 +20,29 @@
                     </p>
                     <h2 class="homelab_header">Hardware</h2>
                     <hr class="homelab_header">
-                    <p>&emsp;&emsp;Currently my setup consists of an Omada ER605 router, a Netgear GS108 gigabit switch, two Raspberry Pis, and a Cisco UCS C220 M3 running Proxmox.
-                        All of my services (other than my media backup, for now), is run on VMs inside the C220. My vpn and Pi-hole run on one, my webserver on another, and a third 
-                        currently for a Minecraft server. The server is currently having some drive issues, so I haven't yet set it up for media storage yet. Eventually I do want to run
-                        pretty much everything through it, including media backups for me and my family, possibly a music server so I don't need to rely on Spotify, and a dynamic Minecraft 
-                        server webapp idea I have (news on that to come).
+                    <p>&emsp;&emsp;Currently my setup consists of an Omada ER605 router, a Netgear GS108 gigabit switch, two Raspberry Pis, and two enterprise servers, a Cisco UCS C220 M3
+                        and a Dell Poweredge R720, which are in Proxmox cluster. More or less everything else in my setup is running off one of these. The Dell is newer, faster, and
+                        quieter, however I don't have much storage on it. Eventually I want to move all of my services on there, but currently things which need larger amounts of storage
+                        space stay on my Cisco machine. I am eventually going to flash the raid controller on the Dell to work in a JBOD configuration, and get a couple of higher capacity
+                        SAS drives so that I can really make good use of the storage and Proxmox's software raid. I am thinking I will likely retire the Cisco machine after that, at least
+                        until I can store it somewhere where the noise it makes isn't bothersome to me. 
                     </p>
                     <h2 class="homelab_header">VPN</h2>
                     <hr class="homelab_header">
                     <p>&emsp;&emsp;I originally used the built-in OpenVPN configuration in my router, I have since switched to using Wireguard, with the server running
-                        on my C220. The convenience of being able to access and modify my set up from anywhere was one of the biggest things I wanted when starting
+                        on my R720. The convenience of being able to access and modify my set up from anywhere was one of the biggest things I wanted when starting
                         my homelab. As a student I am seldom actually at my apartment, so being able to do my work from anywhere is very useful.
                     </p>
                     <h2 class="homelab_header">Media Backup</h2>
                     <hr class="homelab_header">
-                    <p>&emsp;&emsp;While I currently don't do much in terms of backup, I do have all of my schoolwork on my laptop automatically backup every 10 minutes to an SSD connected to a Raspberry Pi.
-                        This isn't the most safe way to do it (I'd much rather have it go to a RAID NAS, but haven't gotten that set up yet), it ensures that 
-                        if my laptop does ever die, I won't lose anything important as long as my SSD hasn't died yet. In writing this I realize that I really should have something
-                        periodically checking to see if it had died yet, and will keep this line up as a shameful motivation to do that.
+                    <p>&emsp;&emsp;For media backup I have created a NextCloud server on a container where I store my pictures. I plan to add my family to the 
+                        server so we can create shared albums and
+                        the like, but I keep forgetting to set it up when I see them. I also keep backups of my schoolwork and personal projects (although my projects tend to be on 
+                        Github), but this is just on an ssd connected to a to a Raspberry Pi.
                     </p>
                     <h2 class="homelab_header">Pi-hole</h2>
                     <hr class="homelab_header">
-                    <p>&emsp;&emsp;Originally run on one of my Raspberry Pis, I now run a Pi-hole on one of the VMs on my server. While predominately for blocking trackers and ads, I have also used
+                    <p>&emsp;&emsp;Originally run on one of my Raspberry Pis, I now run a Pi-hole on one of the containers on my server. While predominately for blocking trackers and ads, I have also used
                         it to assign my devices local addresses that the Pi-hole can resolve as them for ease of access (rasp1.domain.com is a lot easier to remember than an IP address). 
                         On a side note, I do find it pretty entertaining to watch the traffic going through the Pi-hole and blocking any traffic that appears to be tracking or advertisements.
                         A Pi-hole isn't perfect, some websites like Youtube are getting smart, sending ad traffic and content through the same urls so that it can't be blocked, but it's 
@@ -53,13 +54,7 @@
                         long term plan, but I started putting this website on applications so I needed something. Eventually, I plan to switch to a Rust-based webserver, as I generally prefer
                         Rust over Javascript. The website is just vanilla html, css, and js, but eventually I also plan to switch to a framework (possibly React, but I haven't 100% decided yet).
                     </p>
-                    <h2 class="homelab_header">Minecraft Servers</h2>
-                    <hr class="homelab_header" style="width:23%">
-                    <p>&emsp;&emsp;I have a vanilla Minecraft server running using PurpurMC. I use an SRV record so that I can use a port other than Minecraft's default while still making sure
-                        anyone joining the server doesn't have to type out an IP or port number. Eventually I want to run multiple servers off my C220, with many worlds stored on the drives and 
-                        trusted users (my friends) being able to start up whichever server they want whenever they want.
-                    </p>
-                    <h2>My current network map as of 11/1/2025</h2>
+                    <h2>My network map as of 11/1/2025(outdated)</h2>
                     <img src="NetworkMap.png">
                  </div>
 
