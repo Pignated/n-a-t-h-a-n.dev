@@ -10,7 +10,8 @@
 }
 .christmaslist::before {
     content: "";
-    background: repeating-linear-gradient(45deg, #f40000, #f40000 10px, #f4f4f4 10px, #f4f4f4 13px);
+    background-image: repeating-linear-gradient(30deg, #f4000080, #f4000080 10px, #f4f4f480 10px, #f4f4f480 13px, #00f40080 13px, #00f40080 17px), 
+    repeating-linear-gradient(-45deg, #f40000, #f40000 7px, #f4f4f4 7px, #f4f4f4 11px, #00f400 11px, #00f400 27px);
     position:fixed;
     top: -100px;
     left: -100px;
@@ -18,14 +19,14 @@
     bottom: -100px;
     z-index: -1;
     pointer-events: none;
-    animation: moveDiagonals 0.5s linear infinite;
+    animation: moveDiagonals .5s linear infinite;
 }
 @keyframes moveDiagonals {
     0% {
-        transform: translate3d(0,0,0)
+        background-position: 0 0, 0 0
     }
     100% {
-        transform: translate3d(calc(sqrt(2) * 13px),0,0)
+        background-position: calc(2 * 17px) calc(2 * 17px / sqrt(3)),calc(sqrt(2) * -81px) 0
     }
 }
 
@@ -40,6 +41,7 @@
     grid-auto-flow: column; 
     & > img {
         width:75%;
-        height:auto;
+       height:auto;
+       margin-left: 5px;
     }
 }
