@@ -20,7 +20,8 @@
     z-index: -1;
     pointer-events: none;
     background-blend-mode: multiply;
-    animation: moveDiagonals .1s linear infinite, strobe .11s infinite step-end;
+    animation: moveDiagonals .1s linear infinite
+    /*strobe .11s infinite step-end;*/
 }
 @keyframes moveDiagonals {
     0% {
