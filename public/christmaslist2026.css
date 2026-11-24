@@ -19,14 +19,24 @@
     bottom: -100px;
     z-index: -1;
     pointer-events: none;
-    animation: moveDiagonals .1s linear infinite;
+    background-blend-mode: multiply;
+    animation: moveDiagonals .1s linear infinite, strobe .11s infinite step-end;
 }
 @keyframes moveDiagonals {
     0% {
-        background-position: 0 0, 0 0
+        background-position: 0 0, 0 0;
     }
     100% {
-        background-position: calc(2 * 34px) calc(2 * 17px / sqrt(3)),calc(sqrt(2) * -81px) calc(sqrt(2) * -27px)
+        background-position: calc(2 * 34px) calc(2 * 17px / sqrt(3)),calc(sqrt(2) * -81px) calc(sqrt(2) * -27px);
+    }
+}
+
+@keyframes strobe {
+    0% {
+        background-color: #ffffff;
+    }
+    50% {
+        background-color: #000000;
     }
 }
 
