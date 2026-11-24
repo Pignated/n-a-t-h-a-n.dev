@@ -1,0 +1,45 @@
+
+.christmaslist {
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.christmaslist::before {
+    content: "";
+    background: repeating-linear-gradient(45deg, #f40000, #f40000 10px, #f4f4f4 10px, #f4f4f4 13px);
+    position:fixed;
+    top: -100px;
+    left: -100px;
+    right: -100px;
+    bottom: -100px;
+    z-index: -1;
+    pointer-events: none;
+    animation: moveDiagonals 0.5s linear infinite;
+}
+@keyframes moveDiagonals {
+    0% {
+        transform: translate3d(0,0,0)
+    }
+    100% {
+        transform: translate3d(calc(sqrt(2) * 13px),0,0)
+    }
+}
+
+.card {
+    outline: 3px solid black;
+    border-radius: 12px;
+    padding: 5px;
+    min-height: 0vh;
+}
+.card > div {
+    display:grid;
+    grid-auto-flow: column; 
+    & > img {
+        width:75%;
+        height:auto;
+    }
+}
