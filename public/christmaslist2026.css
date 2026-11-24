@@ -19,14 +19,14 @@
     bottom: -100px;
     z-index: -1;
     pointer-events: none;
-    animation: moveDiagonals .5s linear infinite;
+    animation: moveDiagonals .1s linear infinite;
 }
 @keyframes moveDiagonals {
     0% {
         background-position: 0 0, 0 0
     }
     100% {
-        background-position: calc(2 * 17px) calc(2 * 17px / sqrt(3)),calc(sqrt(2) * -81px) 0
+        background-position: calc(2 * 34px) calc(2 * 17px / sqrt(3)),calc(sqrt(2) * -81px) calc(sqrt(2) * -27px)
     }
 }
 
